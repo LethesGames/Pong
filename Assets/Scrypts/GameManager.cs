@@ -31,11 +31,9 @@ public class GameManager : MonoBehaviour
         if("right".Equals(side)){
             player1Score++;
             player1ScoreTxt.text = player1Score.ToString();
-            Debug.Log("Player1Score: " + player1Score);
         }else{
             player2Score++;
             player2ScoreTxt.text = player2Score.ToString();
-            Debug.Log("Player2Score: " + player2Score);
         }
 
         ball.GetComponent<BallController>().RespawnBall(side);
