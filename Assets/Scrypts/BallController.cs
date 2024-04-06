@@ -42,4 +42,8 @@ public class BallController : MonoBehaviour
             ballRB.velocity = new Vector2(10, Random.Range(-10f, 10f));
         }
     }
+
+    public float GetVerticalBallSpeed(){
+        return ballRB.velocity.y;
+    }
 }
