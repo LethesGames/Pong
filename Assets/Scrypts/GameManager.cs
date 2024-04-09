@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text player2ScoreTxt;
     private MenuController menuController;
     public GameObject player2;
+    public GameObject player1;
 
     private void Awake()
     {
@@ -60,6 +63,18 @@ public class GameManager : MonoBehaviour
         }
 
         ball.GetComponent<BallController>().RespawnBall(side);
+    }
+
+    public void RestartGame() {
+        player1ScoreTxt.text = "0";
+        player2ScoreTxt.text = "0";
+        player1.transform.position = new Vector3(-8, 0, 0);
+        player2.transform.position = new Vector3(8, 0, 0);
+        ball.GetComponent<BallController>().RespawnBall("left");
+    }
+
+    public void LoadMenu() {
+        SceneManager.LoadScene("MenuScene");
     }
 
 }
