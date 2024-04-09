@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour
 {
     public GameObject ball;
     private Rigidbody2D ballRB;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +46,12 @@ public class BallController : MonoBehaviour
 
     public float GetVerticalBallSpeed(){
         return ballRB.velocity.y;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(audioSource.isPlaying){
+            audioSource.Stop();
+        }
+        audioSource.Play();
     }
 }
